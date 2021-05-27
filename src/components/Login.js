@@ -43,6 +43,7 @@ const Login = (props) => {
                   name="password"
                   onChange={(e)=>{setpassword(e.target.value)}}
                 />
+                <p className="errormsg">{passwordError}</p>
               </div>
 
               <div className="createAccount">
