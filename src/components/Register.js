@@ -1,24 +1,23 @@
-import React, { Component, useState } from 'react';
-import auth from '../firebase';
+import React from 'react';
 import '../components/Register.css';
 import { Link } from 'react-router-dom'
 
-const Register = () => {
-  const [email , setemail] = useState('');
-  const [password , setpassword] = useState('');
+ 
+  const Register = (props) => {
 
-  const signup = () => {
-      auth.createUserWithEmailAndPassword(email , password)
-      .then((userCredential)=>{
-          // send verification mail.
-        userCredential.user.sendEmailVerification();
-        auth.signOut();
-        alert("Email sent");
-      })
-      .catch(alert);
-  }
+    const {
+        email,
+        setEmail,
+        password,
+        setPassword, 
+        handleLogin, 
+        handleSignup,
+        hasAccount, 
+        setHasAccount, 
+        emailError, 
+        passwordError
+    } = props;
   
-  
         return (
           <div className="wrapper">
           <div className="form-wrapper">
@@ -48,6 +47,7 @@ const Register = () => {
                   placeholder="Email"
                   type="email"
                   name="email"
+                  onChange={(e)=>{setEmail(e.target.value)}}
                   
                 />
                  
@@ -67,6 +67,7 @@ const Register = () => {
                   placeholder="Password"
                   type="password"
                   name="password"
+                  onChange={(e)=>{setPassword(e.target.value)}}
                 />
               </div>
 
@@ -79,7 +80,7 @@ const Register = () => {
                 />
               </div>
               <div className="createAccount">
-                <button type="submit">Create Account</button>
+                <button type="submit"onClick={handleSignup}>Create Account</button>
                 <small>Already Have an Account?</small>
                 <Link to='/login'>sign in</Link>
               </div>

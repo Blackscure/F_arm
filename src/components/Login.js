@@ -1,5 +1,4 @@
-import React, { Component, useState } from 'react';
-import auth from '../firebase';
+import React from 'react';
 import '../components/Register.css';
 import { Link } from 'react-router-dom'
 
@@ -30,7 +29,7 @@ const Login = (props) => {
                   placeholder="Email"
                   type="email"
                   name="email"
-                  onChange={(e)=>{setemail(e.target.value)}}
+                  onChange={(e)=>{setEmail(e.target.value)}}
                   
                 />
               </div>
@@ -41,14 +40,14 @@ const Login = (props) => {
                   placeholder="Password"
                   type="password"
                   name="password"
-                  onChange={(e)=>{setpassword(e.target.value)}}
+                  onChange={(e)=>{setPassword(e.target.value)}}
                 />
                 <p className="errormsg">{passwordError}</p>
               </div>
 
               <div className="createAccount">
-                <button type="submit">Create Account</button>
-                <small>Don't have an account? Clickto <Link to='/login'>here</Link>create one.</small>
+                <button type="submit" onClick={handleLogin}>Create Account</button>
+                <small>Don't have an account? Click to <Link to='/login'>here</Link>create one.</small>
                  
               </div>
             </form>
