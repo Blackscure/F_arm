@@ -81,6 +81,13 @@ import firebase from 'firebase';
     firebase
     .auth()
     .createWithEmailAndPassword(firstname, lastname, mobile, confirmpassword, email,password)
+    .then((userCredential)=>{
+      // send verification mail.
+    userCredential.user.sendEmailVerification();
+    auth.signOut();
+    alert("Check your email ");
+  })
+  
     .catch(err => {
       switch(err.code){
         case "auth/email-already-in-use":
@@ -98,19 +105,45 @@ import firebase from 'firebase';
 
 
      return (
+       <div className = "App"> 
+       
        <Router>
          <Switch>
            <Route path="/">
-             <Login/>
+           <Login
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              handleLogin={handleLogin}
+              handleSignup={handleSignup}
+              hasAccount={hasAccount}
+              setHasAccount={setHasAccount}
+              emailError={emailError}
+              passwordError={passwordError}
+          />
+
              <Route path="/home">
-               <Home/>
+               <Home handleLogout={handleLogout}/>
              </Route>
              <Route path="register">
-               <Register/>
+               <Register
+                email={email}
+                setEmail={setEmail}
+                password={password}
+                setPassword={setPassword}
+                handleLogin={handleLogin}
+                handleSignup={handleSignup}
+                hasAccount={hasAccount}
+                setHasAccount={setHasAccount}
+                emailError={emailError}
+                passwordError={passwordError}
+                />
              </Route>
            </Route>
          </Switch>
        </Router>
+       </div>
      )
  }
  

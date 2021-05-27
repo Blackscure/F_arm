@@ -34,6 +34,7 @@ export class Home extends Component {
         this.state = {
           leftOpen: true,
           rightOpen: true,
+          handleLogout,
         }
       }
     
@@ -74,6 +75,7 @@ export class Home extends Component {
                         <a class="dropdown-item" href="#">Edit Profile</a>
                         <a class="dropdown-item" href="#">Log Out</a>
                     </div>
+                    <button onClick={handleLogout}></button>
                     </li>
                     </ul>
                     </div>
