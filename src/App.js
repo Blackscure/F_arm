@@ -10,7 +10,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import firebase from 'firebase';
 
- 
+
  const App = () => {
   const [user, setUser] = useState('');
    const [firstname, setFirstname] = useState('');
@@ -22,6 +22,7 @@ import firebase from 'firebase';
    const [emailError, setEmailError] = useState('');
    const [passwordError, setpasswordError] = useState('');
    const [hasAccount, setHasAccount] = useState('false');
+    
 
    const clearInputs = () => {
     setFirstname('');
