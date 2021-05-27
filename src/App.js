@@ -8,7 +8,7 @@
 import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
-import firebase from './firebase';
+import firebase from 'firebase';
 
  
  const App = () => {
@@ -98,20 +98,19 @@ import firebase from './firebase';
 
 
      return (
-       <div className="App">
-         <Login 
-          email={email}
-          setEmail={setEmail} 
-          password={password} 
-          setPassword={setPassword}
-          handleLogin={handleLogin}
-          handleSignup={handleSignup}
-          hasAccount={hasAccount}
-          setHasAccount={setHasAccount}
-          emailError={emailError}
-          passwordError={passwordError}
-           />
-       </div>
+       <Router>
+         <Switch>
+           <Route path="/">
+             <Login/>
+             <Route path="/home">
+               <Home/>
+             </Route>
+             <Route path="register">
+               <Register/>
+             </Route>
+           </Route>
+         </Switch>
+       </Router>
      )
  }
  
