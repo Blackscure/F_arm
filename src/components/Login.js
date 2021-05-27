@@ -3,7 +3,20 @@ import auth from '../firebase';
 import '../components/Register.css';
 import { Link } from 'react-router-dom'
 
-const Login = () => {
+const Login = (props) => {
+
+    const {
+        email,
+        setEmail,
+        password,
+        setPassword, 
+        handleLogin, 
+        handleSignup,
+        hasAccount, 
+        setHasAccount, 
+        emailError, 
+        passwordError
+    } = props;
    
         return (
           <div className="wrapper">
@@ -17,6 +30,7 @@ const Login = () => {
                   placeholder="Email"
                   type="email"
                   name="email"
+                  onChange={(e)=>{setemail(e.target.value)}}
                   
                 />
               </div>
@@ -27,6 +41,7 @@ const Login = () => {
                   placeholder="Password"
                   type="password"
                   name="password"
+                  onChange={(e)=>{setpassword(e.target.value)}}
                 />
               </div>
 
