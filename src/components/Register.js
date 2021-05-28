@@ -82,7 +82,7 @@ import { Link } from 'react-router-dom'
               <div className="createAccount">
                 <button type="submit"onClick={handleSignup}>Create Account</button>
                 <small>Already Have an Account?</small>
-                <Link to='/login'>sign in</Link>
+              
               </div>
             </form>
           </div>

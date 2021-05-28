@@ -1,6 +1,6 @@
 import React from 'react';
 import '../components/Register.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Login = (props) => {
 
@@ -19,19 +19,17 @@ const Login = (props) => {
    
         return (
           <div className="wrapper">
-          <div className="form-wrapper">
-            <h1>Welcome</h1>
-            <form>
-         
+          
+           
               <div className="email">
                 <input
                   className="email"
                   placeholder="Email"
                   type="email"
-                  name="email"
-                  onChange={(e)=>{setEmail(e.target.value)}}
-                  
+                  value={email}
+                  onChange={(e) => {setEmail(e.target.value)}}
                 />
+                <p className="errorMsg">{emailError}</p>
               </div>
 
               <div className="password">
@@ -39,19 +37,27 @@ const Login = (props) => {
                   className="password"
                   placeholder="Password"
                   type="password"
-                  name="password"
+                  required
+                  value={password}
                   onChange={(e)=>{setPassword(e.target.value)}}
                 />
-                <p className="errormsg">{passwordError}</p>
+                <p className="errorMsg">{passwordError}</p>
               </div>
-
               <div className="createAccount">
-                <button type="submit" onClick={handleLogin}>Create Account</button>
-                <small>Don't have an account? Click to <Link to='/login'>here</Link>create one.</small>
-                 
+                {hasAccount ? (
+                  <>
+                  <button onClick={handleLogin}>Sign In</button>
+                  <small>Don't have an account ? <span onClick={() => setHasAccount(!hasAccount)}>Sign up</span></small>
+                  </>
+                ) : (
+                  <>
+                  <button onClick={handleSignup}>Sign Up</button>
+                  <small>Have an Account ? <span onClick={() => setHasAccount(!hasAccount)}>Sign In</span></small>
+                  </>
+                )}
               </div>
-            </form>
-          </div>
+           
+         
         </div>
         )
 }

@@ -125,7 +125,11 @@ input.error {
   border: 2px solid #519e8a;
 }
 
-.createAccount small {
+.createAccount {
   color: #999;
   font-weight: lighter;
+}
+
+.createAccount p{
+  font-size: 7px;
 }
