@@ -136,28 +136,76 @@ export class Home extends Component {
             <div className="flex-container">
                 <Card style={{ width: '14rem' }}>   
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>                
+                        <Card.Title>
+                        <div class="headcard">
+                          <h4>Field 1</h4>
+                          <h4>DHO1 Maize</h4>
+                      </div>
+                          </Card.Title>                
                         <Card.Text>                  
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
+                        <div class="cadbody">
+                        <p><b>Size</b>: 1.5acres</p>
+                        <p> <b>Current stage</b>:Lorem ipsum, or lipsum as it is sometimes known, is dummy text used</p>
+                        <p><b>Estimated yield</b>:90,00bags</p>
+                    </div>
+                    <div className="card mb-2 ">
+                      <div className="smallcard">
+                        <p>Plant Seed</p>
+                        <span>Due 1st jan</span><br></br>
+                        <input type="radio" id="other" name="complte" value="other"/>
+                        <label for="comp">Mark as complete</label>
+                      </div>
+                    </div>
                         </Card.Text>                 
                     </Card.Body>
                 </Card>
                 <Card style={{ width: '14rem' }}>   
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>                
+                        <Card.Title>
+                        <div class="headcard2">
+                          <h4>Field 2</h4>
+                          <h4>Gross Michel Banana</h4>
+                        </div>
+                        </Card.Title>                
                         <Card.Text>                  
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
+                        <div class="cadbody">
+                        <p><b>Size</b>: 1.5acres</p>
+                        <p> <b>Current stage</b>:Lorem ipsum, or lipsum as it is sometimes known, is dummy text used</p>
+                        <p><b>Estimated yield</b>:80,00bags</p>
+                    </div>
+                    <div className="card mb-2 ">
+                      <div className="smallcard">
+                        <p>Plant Seed</p>
+                        <span>Due 1st jan</span><br></br>
+                        <input type="radio" id="other" name="complte" value="other"/>
+                        <label for="comp">Mark as complete</label>
+                      </div>
+                    </div>
                         </Card.Text>                 
                     </Card.Body>
                 </Card>
                 <Card style={{ width: '14rem' }}>   
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>                
+                        <Card.Title>
+                        <div class="headcard3">
+                            <h4>Field 3</h4>
+                            <h4>KAT/B-9 Bean</h4>
+                            </div>
+                        </Card.Title>                
                         <Card.Text>                  
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
+                        <div class="cadbody">
+                              <p><b>Size</b>: 1.5acres</p>
+                              <p> <b>Current stage</b>:Lorem ipsum, or lipsum as it is sometimes known, is dummy text used</p>
+                              <p><b>Estimated yield</b>:80,00bags</p>
+                          </div>
+                          <div className="card mb-2 ">
+                      <div className="smallcard">
+                        <p>Plant Seed</p>
+                        <span>Due 1st jan</span><br></br>
+                        <input type="radio" id="other" name="complte" value="other"/>
+                        <label for="comp">Mark as complete</label>
+                      </div>
+                    </div>
                         </Card.Text>                 
                     </Card.Body>
                 </Card>

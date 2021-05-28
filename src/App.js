@@ -72,7 +72,6 @@ import fire from './ firebase';
     .then((userCredential)=>{
       // send verification mail.
     userCredential.user.sendEmailVerification();
-    auth.signOut();
     alert("Check your email ");
   })
   
