@@ -9,6 +9,7 @@ import '../components/Home.scss'
 import { UncontrolledButtonDropdown, DropdownMenu, DropdownItem, DropdownToggle } from 'reactstrap';
 import { Line } from "react-chartjs-2";
 
+
 const state = {
     labels: ['Jan', 'Feb', 'March',
              'Apr', 'May', 'June','Jul','Aug','Sep','Oct','Nov','Dec'],
@@ -30,14 +31,19 @@ const state = {
 export class Home extends Component {
     constructor(props) {
         super(props);
-    
+      
         this.state = {
           leftOpen: true,
           rightOpen: true,
-          handleLogout,
+          //handleLogout: true,
         }
       }
-    
+
+      handleLogout() {
+        
+        console.log("The link was clicked");
+      }
+
       toggleSidebar = (event) => {
         let key = `${event.currentTarget.parentNode.id}Open`;
         this.setState({ [key]: !this.state[key] });
@@ -46,7 +52,7 @@ export class Home extends Component {
       render() {
         let leftOpen = this.state.leftOpen ? 'open' : 'closed';
         let rightOpen = this.state.rightOpen ? 'open' : 'closed';
-
+        const handleLogout = this.handleLogout;
         return (
             <div>
                 <Navbar bg="success" expand="lg">
@@ -75,7 +81,7 @@ export class Home extends Component {
                         <a class="dropdown-item" href="#">Edit Profile</a>
                         <a class="dropdown-item" href="#">Log Out</a>
                     </div>
-                    <button onClick={handleLogout}></button>
+                    <button onClick={handleLogout}>Temporary Logout btn</button>
                     </li>
                     </ul>
                     </div>

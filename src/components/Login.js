@@ -19,8 +19,8 @@ const Login = (props) => {
    
         return (
           <div className="wrapper">
-          <div className="form-wrapper">
-            <form>
+          
+           
               <div className="email">
                 <input
                   className="email"
@@ -56,8 +56,8 @@ const Login = (props) => {
                   </>
                 )}
               </div>
-            </form>
-          </div>
+           
+         
         </div>
         )
 }

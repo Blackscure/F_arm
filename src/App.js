@@ -1,11 +1,4 @@
-
- import React, { Component,useState, useEffect } from 'react'
- import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React, { Component,useState, useEffect } from 'react';
 import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
@@ -15,24 +8,16 @@ import fire from './ firebase';
 
  const App = () => {
   const [user, setUser] = useState('');
-   const [firstname, setFirstname] = useState('');
-   const [lastname, setLastname] = useState('');
    const [email, setEmail] = useState('');
-   const [mobile, setMobile] = useState('');
    const [password, setPassword] = useState('');
-   const [confirmpassword, setConfirmpassword] = useState('');
    const [emailError, setEmailError] = useState('');
    const [passwordError, setpasswordError] = useState('');
    const [hasAccount, setHasAccount] = useState('false');
     
 
    const clearInputs = () => {
-    setFirstname('');
-    setLastname('');
     setEmail('');
-    setMobile('');
     setPassword('');
-    setConfirmpassword('');
    }
 
    const clearErrors = () => {
@@ -83,7 +68,7 @@ import fire from './ firebase';
      clearErrors();
     fire
     .auth()
-    .createWithEmailAndPassword(firstname, lastname, mobile, confirmpassword, email,password)
+    .createWithEmailAndPassword(email,password)
     .then((userCredential)=>{
       // send verification mail.
     userCredential.user.sendEmailVerification();
@@ -109,43 +94,22 @@ import fire from './ firebase';
 
      return (
        <div className = "App"> 
-       
-       <Router>
-         <Switch>
-           <Route path="/">
-           <Login
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-              handleLogin={handleLogin}
-              handleSignup={handleSignup}
-              hasAccount={hasAccount}
-              setHasAccount={setHasAccount}
-              emailError={emailError}
-              passwordError={passwordError}
-          />
-
-             <Route path="/home">
-               <Home handleLogout={handleLogout}/>
-             </Route>
-             <Route path="register">
-               <Register
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                handleLogin={handleLogin}
-                handleSignup={handleSignup}
-                hasAccount={hasAccount}
-                setHasAccount={setHasAccount}
-                emailError={emailError}
-                passwordError={passwordError}
-                />
-             </Route>
-           </Route>
-         </Switch>
-       </Router>
+       {user ? (
+            <Home handleLogout={handleLogout}/>
+       ) : (
+        <Login
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        handleLogin={handleLogin}
+        handleSignup={handleSignup}
+        hasAccount={hasAccount}
+        setHasAccount={setHasAccount}
+        emailError={emailError}
+        passwordError={passwordError}
+    />
+       )}
        </div>
      )
  }
