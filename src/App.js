@@ -1,3 +1,4 @@
+
  import React, { Component,useState, useEffect } from 'react'
  import {
   BrowserRouter as Router,
@@ -8,7 +9,8 @@
 import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
-import firebase from 'firebase';
+import fire from './ firebase';
+
 
 
  const App = () => {
@@ -40,7 +42,7 @@ import firebase from 'firebase';
 
    const handleLogin = () => {
      clearErrors();
-    firebase
+    fire
             .auth()
             .signInWithEmailAndPassword(email,password)
             .catch(err => {
@@ -58,12 +60,12 @@ import firebase from 'firebase';
    };
 
    const handleLogout = () => {
-     firebase.auth().signOut();
+     fire.auth().signOut();
    };
 
    //check if user exists
    const authListener = () => {
-     firebase.auth().onAuthStateChanged(user => {
+     fire.auth().onAuthStateChanged(user => {
        if(user){
          clearInputs();
          setUser(user);
@@ -79,7 +81,7 @@ import firebase from 'firebase';
 
    const handleSignup = () => {
      clearErrors();
-    firebase
+    fire
     .auth()
     .createWithEmailAndPassword(firstname, lastname, mobile, confirmpassword, email,password)
     .then((userCredential)=>{

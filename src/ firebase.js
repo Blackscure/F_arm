@@ -1,6 +1,7 @@
 import firebase from 'firebase';
  
-  
+ 
+ // Your web app's Firebase configuration
  const firebaseConfig = {
     apiKey: "AIzaSyCO0gnH89wSJ0Iu1jEHwfKKMZ94mOh9y7I",
     authDomain: "farm-5cf39.firebaseapp.com",
@@ -9,9 +10,9 @@ import firebase from 'firebase';
     messagingSenderId: "37718126492",
     appId: "1:37718126492:web:00e85183e5634c1dbf6259"
   };
- 
-  firebase.initializeApp(firebaseConfig);
+  // Initialize Firebase
+  const fire = firebase.initializeApp(firebaseConfig);
 
-  var auth = firebase.auth();
+  //var auth = firebase.auth();
 
-  export default auth;
+  export default fire;

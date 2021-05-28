@@ -24,7 +24,7 @@ const state = {
       }
     ]
   }
-  
+ 
  
 
 export class Home extends Component {
