@@ -117,7 +117,7 @@ export class Home extends Component {
     </div>
 </div>
 
-<div id='main'>
+<div id='main'><br></br>
     <div className='headeri'>
     <UncontrolledButtonDropdown>
       <DropdownToggle  caret color="success">
@@ -131,6 +131,7 @@ export class Home extends Component {
         <DropdownItem>New Field</DropdownItem>
       </DropdownMenu>
     </UncontrolledButtonDropdown>
+    <button7 type="button" className="btn btn-outline-success">New Crop</button7>
     </div>
     <div className='content'>
             <div className="flex-container">
