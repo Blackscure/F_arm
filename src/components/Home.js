@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import '../components/Home.scss'
 import { UncontrolledButtonDropdown, DropdownMenu, DropdownItem, DropdownToggle } from 'reactstrap';
 import { Line } from "react-chartjs-2";
+import { Modal } from 'bootstrap';
 
 
 const state = {
@@ -25,8 +26,8 @@ const state = {
       }
     ]
   }
- 
- 
+
+  //const [lgShow, setLgShow] = useState(false);
 
 export class Home extends Component {
     constructor(props) {
@@ -39,11 +40,6 @@ export class Home extends Component {
         }
       }
 
-      handleLogout() {
-        
-        console.log("The link was clicked");
-      }
-
       toggleSidebar = (event) => {
         let key = `${event.currentTarget.parentNode.id}Open`;
         this.setState({ [key]: !this.state[key] });
@@ -53,6 +49,8 @@ export class Home extends Component {
         let leftOpen = this.state.leftOpen ? 'open' : 'closed';
         let rightOpen = this.state.rightOpen ? 'open' : 'closed';
         const handleLogout = this.handleLogout;
+
+      
         return (
             <div>
                 <Navbar bg="success" expand="lg">
@@ -132,6 +130,8 @@ export class Home extends Component {
       </DropdownMenu>
     </UncontrolledButtonDropdown>
     <button7 type="button" className="btn btn-outline-success">New Crop</button7>
+   
+
     </div>
     <div className='content'>
             <div className="flex-container">
