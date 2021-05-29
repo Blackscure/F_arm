@@ -3,6 +3,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
 import fire from './ firebase';
+//import firebase from 'firebase'
+require('firebase/auth')
 
 
 
@@ -65,15 +67,17 @@ import fire from './ firebase';
    }, [])
 
    const handleSignup = () => {
-     clearErrors();
+    clearErrors();
     fire
     .auth()
     .createWithEmailAndPassword(email,password)
+    
     .then((userCredential)=>{
       // send verification mail.
     userCredential.user.sendEmailVerification();
     alert("Check your email ");
   })
+  
   
     .catch(err => {
       switch(err.code){
