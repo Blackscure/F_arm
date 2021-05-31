@@ -27,7 +27,18 @@ require('firebase/auth')
    }
 
    const handleLogin = () => {
-     clearErrors();
+    clearErrors();
+    fire.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
+     /*
     fire
             .auth()
             .signInWithEmailAndPassword(email,password)
@@ -43,11 +54,14 @@ require('firebase/auth')
                         break;
               }
             });
+            */
    };
 
    const handleLogout = () => {
      fire.auth().signOut();
    };
+   
+   
 
    //check if user exists
    const authListener = () => {
@@ -77,8 +91,14 @@ require('firebase/auth')
        
       // ...
     })
+
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ..
+    });
   
-  
+  /*
   
     .catch(err => {
       switch(err.code){
@@ -91,6 +111,7 @@ require('firebase/auth')
                 break;
       }
     });
+    */
    }
 
 
