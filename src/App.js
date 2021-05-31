@@ -67,12 +67,7 @@ require('firebase/auth')
 
    const handleSignup = () => {
     clearErrors();
-    /*
-    fire.auth().createWithEmailAndPassword(email, password).then((userCredential) => {
-      userCredential.user.sendEmailVerification();
-      alert("Check your email ");
-    })
-    */
+     
     fire.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
       userCredential.user.sendEmailVerification();
@@ -88,7 +83,7 @@ require('firebase/auth')
     .catch(err => {
       switch(err.code){
         case "auth/email-already-in-use":
-          case "auth/user-disabled":
+          case "auth/user-disabled":ß
               setEmailError(err.message);
               break;
               case "auth/weak-password":
