@@ -78,8 +78,8 @@ export class Home extends Component {
                     <div class="dropdown-menu" aria-labelledby="basic-nav-dropdown">
                         <a class="dropdown-item" href="#">My Profile</a>
                         <a class="dropdown-item" href="#">Account</a>
-                        <a class="dropdown-item" href="#">Sign Out</a>
-                        <button onClick={handleLogout}>Sign Out</button>
+                        <a class="dropdown-item" onClick={handleLogout}>Sign Out</a>
+                         
                     </div>
                      
                     </li>
