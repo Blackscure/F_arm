@@ -2,7 +2,7 @@ import React, { Component,useState, useEffect } from 'react';
 import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
-import fire from './ firebase';
+import fire from './firebase';
 //import firebase from 'firebase'
 require('firebase/auth')
 
@@ -15,7 +15,6 @@ require('firebase/auth')
    const [emailError, setEmailError] = useState('');
    const [passwordError, setpasswordError] = useState('');
    const [hasAccount, setHasAccount] = useState('false');
-    
 
    const clearInputs = () => {
     setEmail('');
@@ -68,21 +67,23 @@ require('firebase/auth')
 
    const handleSignup = () => {
     clearErrors();
-    fire
-    .auth()
-    .createWithEmailAndPassword(email,password)
-    
-    .then((userCredential)=>{
-      // send verification mail.
-    userCredential.user.sendEmailVerification();
-    alert("Check your email ");
-  })
+     
+    fire.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      userCredential.user.sendEmailVerification();
+      alert("Check your email ");
+      // Signed in 
+      var user = userCredential.user;
+       
+      // ...
+    })
+  
   
   
     .catch(err => {
       switch(err.code){
         case "auth/email-already-in-use":
-          case "auth/user-disabled":
+          case "auth/user-disabled":ß
               setEmailError(err.message);
               break;
               case "auth/weak-password":
